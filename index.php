@@ -29,7 +29,7 @@
 </head>
 
 <body>
-    <div class="gridArea">
+    <div>
         <table id="myGrid" class="nowrap table table-striped table-bordered table-hover table-condensed" cellspacing="0"
             width="100%">
             <thead>
