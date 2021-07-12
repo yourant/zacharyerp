@@ -30,8 +30,7 @@
 
 <body>
     <div class="gridArea">
-        <table id="myGrid" class="nowrap table table-striped table-bordered table-hover table-condensed" cellspacing="0"
-            width="100%">
+        <table id="myGrid" class="table table-bordered table-striped display nowrap">
             <thead>
                 <tr>
                     <th>显示名称</th>
