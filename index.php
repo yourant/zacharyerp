@@ -29,6 +29,24 @@
 </head>
 
 <body>
+
+<script type="text/javascript" language="javascript" >
+
+$(document).ready(function(){
+
+var data1 = <?php echo $tabledata; ?>;
+ var dataTable = $('#myGrid').DataTable({
+  "processing" : true,
+  "serverSide" : true,
+   scrollY: "200px",
+   scrollCollapse: true,
+   paging: false
+ });
+  
+}); 
+console.log("ready function");
+</script>
+	
     <div class="gridArea">
         <table id="myGrid" class="nowrap table table-striped table-bordered table-hover table-condensed" cellspacing="0"
             width="100%">
@@ -176,23 +194,6 @@ $output = array(
 
 ?>
 
-
-<script type="text/javascript" language="javascript" >
-
-$(document).ready(function(){
-
-var data1 = <?php echo $tabledata; ?>;
- var dataTable = $('#myGrid').DataTable({
-  "processing" : true,
-  "serverSide" : true,
-   "scrollY": "200px",
-   "scrollCollapse": true,
-   "paging": false
- });
-  
-}); 
-console.log("ready function");
-</script>
 
 <!--function createCombox(data) {
     var _html = '<select style="width:100%;">';
