@@ -104,7 +104,7 @@ $tables = $db->query($query_orders);
 foreach ($tables as $table) {
     $tableName = $table["table_name"];
     //$query_arribute = "SELECT created_at, title, variant, sku, quantity FROM " . $tableName;
-    $result = $db->query("SELECT created_at, title, variant, sku, quantity FROM " . $tableName);
+    $result = $db->query("SELECT created_at, title, variant, sku, quantity, note FROM " . $tableName);
     //print_r($orderNumber);
     foreach($result as $row)
     {
@@ -115,7 +115,7 @@ foreach ($tables as $table) {
      $sub_array[] = $row['variant'];
      $sub_array[] = $row['sku'];
      $tabledata[] = $sub_array;*/
-    array_push($tabledata,array('table_name' => $tableName, 'created_at' => $row["created_at"], 'title' => $row["title"], 'variant' => $row["variant"], 'sku' => $row["sku"], 'quantity' => $row["quantity"]));
+    array_push($tabledata,array('table_name' => $tableName, 'created_at' => $row["created_at"], 'title' => $row["title"], 'variant' => $row["variant"], 'sku' => $row["sku"], 'quantity' => $row["quantity"], 'note' => $row["note"]));
     }
     //array_push($tabledata,array($tableName, $row["created_at"], $row["title"], $row["variant"], $row["sku"]));
     }
@@ -192,7 +192,8 @@ $(function () {
             { "data": "title" },
             { "data": "variant" },
             { "data": "sku" },
-            { "data": "quantity" }
+            { "data": "quantity" },
+            { "data": "note" }
         ],
         columnDefs: [{
             "targets": [0, 1],
