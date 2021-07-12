@@ -56,8 +56,6 @@
 
 <?php
 
-print_r("TableData.php");
-
 class MySqli_DB {
 
 	private $con;
@@ -166,7 +164,7 @@ foreach ($tables as $table) {
 		<td>". $row["quantity"] . "</td>
 		</tr>";
 	}*/
-print_r("1");
+print_r("index.php");
 //--------------------------------------------------------------------------------
 
 
@@ -197,7 +195,7 @@ $(document).ready(function(){
  });
   
 }); 
-
+print_r("index.php");
 
 /*function createCombox(data) {
     var _html = '<select style="width:100%;">';
