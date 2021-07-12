@@ -165,10 +165,7 @@ $(document).ready(function(){
    scrollCollapse: true,
    paging: false,
   "order" : [],
-  "ajax" : {
-   url:"fetch.php",
-   type:"POST"
-  }
+  "ajax" : "fetch.php"
  });
 
  $('#sample_data').on('draw.dt', function(){
