@@ -197,7 +197,7 @@ $(function () {
             { "data": "note" }
         ],
         columnDefs: [{
-            "targets": [7],
+            "targets": [6],
             createdCell: function (cell, cellData, rowData, rowIndex, colIndex) {
                 $(cell).click(function () {
                     $(this).html('<input type="text" size="16" style="width: 100%"/>');
@@ -211,7 +211,7 @@ $(function () {
                 })
             }
         }, {
-            "targets": [100],
+            "targets": [],
             createdCell: function (cell, cellData, rowData, rowIndex, colIndex) {
                 var aInput;
                 $(cell).click(function () {
