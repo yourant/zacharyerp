@@ -227,11 +227,7 @@ $(function () {
                 });
             }
         }],
-        //data: <?php echo json_encode($tabledata); ?>,
-        "ajax" : {
-            url:"TableData.php",
-            type:"POST"
-        },
+        data: <?php echo json_encode($tabledata); ?>,
         ordering: false,
         paging: false,
         info: false,
