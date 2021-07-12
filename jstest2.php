@@ -164,8 +164,7 @@ $(document).ready(function(){
    scrollY: "200px",
    scrollCollapse: true,
    paging: false,
-  "order" : [],
-  "ajax" : "fetch.php"
+  "order" : []
  });
 
  $('#sample_data').on('draw.dt', function(){
