@@ -194,11 +194,9 @@ $(function () {
         ],
         columnDefs: [{
             "targets": [6],
-            render: function( data, type, row ) {
-            　　return data;
-            }
             createdCell: function (cell, cellData, rowData, rowIndex, colIndex) {
                 $(cell).click(function () {
+                    $(this).inline( this );
                     $(this).html('<input type="text" size="16" style="width: 100%"/>');
                     var aInput = $(this).find(":input");
                     aInput.focus().val(cellData);
