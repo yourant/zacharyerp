@@ -190,7 +190,7 @@ var data1 = <?php echo $tabledata; ?>;
    scrollCollapse: true,
    paging: false,
   "order": [],
-  	data:[{"display":1,"name":2,"nullable":3,"relation":4,"type",5}],
+  	data:[{"display":"1","name":"2","nullable":"3","relation":"4","type","5"}],
   	columns: [
         { "data": "display" },
         { "data": "name" },
