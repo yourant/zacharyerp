@@ -164,7 +164,11 @@ $(document).ready(function(){
    scrollY: "200px",
    scrollCollapse: true,
    paging: false,
-  "order" : []
+  "order" : [],
+  "ajax" : {
+   url:"fetch.php",
+   type:"POST"
+  }
  });
 
  $('#sample_data').on('draw.dt', function(){
