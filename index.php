@@ -6,8 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-	<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <!--<link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="datatables/css/dataTables.bootstrap.min.css" rel="stylesheet" />-->
+      <script src="jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>  
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://markcell.github.io/jquery-tabledit/assets/js/tabledit.min.js"></script>
     <style>
         body,
         html {
@@ -37,6 +44,12 @@
 
         </table>
     </div>
+
+
+    <!--<script src="jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="datatables/js/dataTables.bootstrap.min.js"></script>
+    <script src="index.js"></script>-->
 </body>
 
 </html>
@@ -131,9 +144,17 @@ foreach ($tables as $table) {
 	//print_r($orderNumber);
 	foreach($result as $row)
 	{
+	 /*$sub_array = array();
+	 $sub_array[] = $tableName;
+	 $sub_array[] = $row['created_at'];
+	 $sub_array[] = $row['title'];
+	 $sub_array[] = $row['variant'];
+	 $sub_array[] = $row['sku'];
+	 $tabledata[] = $sub_array;*/
 	array_push($tabledata,array('display' => $tableName, 'name' => $row["created_at"], 'nullable' => $row["title"], 'relation' => $row["variant"], 'type' => $row["sku"]));
 	}
-}
+	//array_push($tabledata,array($tableName, $row["created_at"], $row["title"], $row["variant"], $row["sku"]));
+	}
 	/*while($row = $result->fetch_assoc()) {
 		print_r("3");
 		echo "<tr>
@@ -159,7 +180,7 @@ $output = array(
 
 
 <script type="text/javascript" language="javascript" >
-/*function createCombox(data) {
+function createCombox(data) {
     var _html = '<select style="width:100%;">';
     data.forEach(function (ele, index) {
         _html += '<option>' + ele + '</option>';
@@ -224,6 +245,7 @@ $(function () {
         searching: false,
         processing: true,
         serverSide: true,
+        data: <?php echo $tabledata; ?>
         ajax : {
             url:"TableData.php",
             type:"POST",
@@ -251,17 +273,5 @@ $(function () {
     };
     editTableObj = $("#myGrid").DataTable(setting);
     console.log("12345");
-});*/
-$(document).ready(function() {
-    $('#example').DataTable( {
-        data: $tabledata,
-        columns: [
-            { "data": "display" },
-            { "data": "name" },
-            { "data": "nullable" },
-            { "data": "relation" },
-            { "data": "type" }
-        ],
-    } );
-} );
+});
 </script>
