@@ -211,7 +211,7 @@ $(function () {
                 })
             }
         }, {
-            "targets": [],
+            "targets": [100],
             createdCell: function (cell, cellData, rowData, rowIndex, colIndex) {
                 var aInput;
                 $(cell).click(function () {
