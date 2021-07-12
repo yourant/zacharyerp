@@ -190,6 +190,7 @@ function createCombox(data) {
 }
 
 var tabledata = <?php echo $tabledata; ?>;
+print_r(tabledata);
 
 $(function () {
     var editTableObj;
