@@ -57,17 +57,37 @@ $(function () {
                 });
             }
         }],
-        data: [{
-            "display": "1",
-            "name": "",
-            "nullable": null,
-            "relation": null,
-            "type": null,
-        }],
         ordering: false,
         paging: false,
         info: false,
         searching: false,
+        "processing": true,
+        "serverSide": true,
+        "ajax" : {
+            url:"TableData.php",
+            type:"POST",
+            async: true,
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Error，Try again！");
+                console.log(errorThrown);
+            },
+            success: function (data) {
+                var jsonRete = eval(data);
+                for (var i in jsonRete) {
+                    if (jsonRete[i].ExchangeRate == 100)
+                    {
+                        //表格4显示
+                        refresh_exchangeRate.html("Done!");
+                        //表格5为操作删除，完成时变成灰色，不可点击
+                        refresh_delete.html("<a><i class='fa fa-trash-o ' style='color:#888;' ></i></a>");
+                    }
+                    else {
+                        refresh_exchangeRate.html(jsonRete[i].ExchangeRate);
+                    }
+                }
+            }
+        }
     };
     editTableObj = $("#myGrid").DataTable(setting);
+    console.log("12345");
 });
