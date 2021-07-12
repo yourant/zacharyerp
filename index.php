@@ -188,14 +188,7 @@ var data1 = <?php echo $tabledata; ?>;
    scrollY: "200px",
    scrollCollapse: true,
    paging: false,
-  "order": [],
-  	"columns": [
-        { "data": "display" },
-        { "data": "name" },
-        { "data": "nullable" },
-        { "data": "relation" },
-        { "data": "type" }
-    ]
+  "order": []
  });
   
 }); 
