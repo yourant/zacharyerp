@@ -30,7 +30,8 @@
 
 <body>
     <div class="gridArea">
-        <table id="myGrid" class="table table-bordered table-striped display nowrap">
+        <table id="myGrid" class="nowrap table table-striped table-bordered table-hover table-condensed" cellspacing="0"
+            width="100%">
             <thead>
                 <tr>
                     <th>显示名称</th>
@@ -193,26 +194,6 @@ $(document).ready(function(){
    url:"TableData.php",
    type:"POST"
   }
- });
-
- $('#myGrid').on('draw.dt', function(){
-  $('#myGrid').Tabledit({
-   url:'action.php',
-   dataType:'json',
-   columns:{
-    identifier : [0, 'id'],
-    editable:[[1, 'first_name'], [2, 'last_name']]
-   },
-   restoreButton:false,
-   onSuccess:function(data, textStatus, jqXHR)
-   {
-    if(data.action == 'delete')
-    {
-     $('#' + data.id).remove();
-     $('#myGrid').DataTable().ajax.reload();
-    }
-   }
-  });
  });
   
 }); 
