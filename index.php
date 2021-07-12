@@ -167,7 +167,6 @@ foreach ($tables as $table) {
 		</tr>";
 	}*/
 print_r("1");
-print_r($tabledata);
 //--------------------------------------------------------------------------------
 
 
@@ -181,7 +180,46 @@ $output = array(
 
 
 <script type="text/javascript" language="javascript" >
-function createCombox(data) {
+
+$(document).ready(function(){
+
+ var dataTable = $('#myGrid').DataTable({
+  "processing" : true,
+  "serverSide" : true,
+   scrollY: "200px",
+   scrollCollapse: true,
+   paging: false,
+  "order" : [],
+  "ajax" : {
+   url:"TableData.php",
+   type:"POST"
+  }
+ });
+
+ $('#myGrid').on('draw.dt', function(){
+  $('#myGrid').Tabledit({
+   url:'action.php',
+   dataType:'json',
+   columns:{
+    identifier : [0, 'id'],
+    editable:[[1, 'first_name'], [2, 'last_name']]
+   },
+   restoreButton:false,
+   onSuccess:function(data, textStatus, jqXHR)
+   {
+    if(data.action == 'delete')
+    {
+     $('#' + data.id).remove();
+     $('#myGrid').DataTable().ajax.reload();
+    }
+   }
+  });
+ });
+  
+}); 
+
+
+/*function createCombox(data) {
     var _html = '<select style="width:100%;">';
     data.forEach(function (ele, index) {
         _html += '<option>' + ele + '</option>';
@@ -190,7 +228,7 @@ function createCombox(data) {
     return _html;
 }
 
-var tabledata = <?php echo $tabledata; ?>;
+
 
 $(function () {
     var editTableObj;
@@ -249,7 +287,7 @@ $(function () {
         processing: true,
         serverSide: true,
         data: tabledata
-        /*"ajax" : {
+        "ajax" : {
             url:"TableData.php",
             type:"POST",
             async: true,
@@ -272,9 +310,9 @@ $(function () {
                     }
                 }
             }
-        }*/
+        }
     };
     editTableObj = $("#myGrid").DataTable(setting);
     console.log("12345");
-});
+});*/
 </script>
