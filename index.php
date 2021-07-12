@@ -201,7 +201,7 @@ $(function () {
                     editTableObj.cell(cell).data(text)
                     $(this).html('<input type="text" size="16" style="width: 100%"/>');
                     var aInput = $(this).find(":input");
-                    aInput.focus().val(cellData);
+                    aInput.focus().val(text);
                 });
                 $(cell).on("blur", "input", function () {
                     var text = $(this).val();
