@@ -156,6 +156,7 @@ $output = array(
                     <th>variant</th>
                     <th>SKU</th>
                     <th>Quantity</th>
+                    <th>Note</th>
                 </tr>
             </thead>
 
