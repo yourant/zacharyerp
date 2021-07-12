@@ -196,8 +196,9 @@ $(document).ready(function(){
   
 }); 
 print_r("index.php");
+</script>
 
-/*function createCombox(data) {
+<!--function createCombox(data) {
     var _html = '<select style="width:100%;">';
     data.forEach(function (ele, index) {
         _html += '<option>' + ele + '</option>';
@@ -292,5 +293,5 @@ $(function () {
     };
     editTableObj = $("#myGrid").DataTable(setting);
     console.log("12345");
-});*/
-</script>
+});
+</script>-->
