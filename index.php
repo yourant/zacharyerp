@@ -195,5 +195,4 @@ $(document).ready(function(){
  });
   
 }); 
-print_r("index.php");
 </script>
