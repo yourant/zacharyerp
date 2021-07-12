@@ -196,7 +196,9 @@ $(function () {
             "targets": [6],
             createdCell: function (cell, cellData, rowData, rowIndex, colIndex) {
                 $(cell).click(function () {
-                    editTableObj.cell(cell).data(cellData)
+                    var text = $(this).val();
+                    $(cell).html(text);
+                    editTableObj.cell(cell).data(text)
                     $(this).html('<input type="text" size="16" style="width: 100%"/>');
                     var aInput = $(this).find(":input");
                     aInput.focus().val(cellData);
