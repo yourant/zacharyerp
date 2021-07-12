@@ -167,6 +167,7 @@ foreach ($tables as $table) {
 		</tr>";
 	}*/
 print_r("1");
+print_r($tabledata);
 //--------------------------------------------------------------------------------
 
 
@@ -190,7 +191,6 @@ function createCombox(data) {
 }
 
 var tabledata = <?php echo $tabledata; ?>;
-<?php echo $tabledata; ?>;
 
 $(function () {
     var editTableObj;
