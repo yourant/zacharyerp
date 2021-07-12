@@ -248,7 +248,7 @@ $(function () {
         processing: true,
         serverSide: true,
         data: tabledata
-        ajax : {
+        "ajax" : {
             url:"TableData.php",
             type:"POST",
             async: true,
