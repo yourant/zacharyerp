@@ -182,6 +182,7 @@ $output = array(
 
 $(document).ready(function(){
 
+var data1 = <?php echo json_encode($tabledata); ?>;
  var dataTable = $('#myGrid').DataTable({
   "processing" : true,
   "serverSide" : true,
@@ -189,10 +190,7 @@ $(document).ready(function(){
    scrollCollapse: true,
    paging: false,
   "order": [],
-  "ajax" : {
-   url:"TableData.php",
-   type:"POST"
-  }
+  	data: data1
  });
   
 }); 
