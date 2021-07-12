@@ -246,7 +246,7 @@ $(function () {
         searching: false,
         processing: true,
         serverSide: true,
-        data: <?php echo json_encode($tabledata); ?>
+        data: <?php echo $tabledata; ?>
         /*ajax : {
             url:"TableData.php",
             type:"POST",
