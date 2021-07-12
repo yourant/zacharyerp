@@ -199,11 +199,14 @@ $(function () {
                     $(this).html('<input type="text" size="16" style="width: 100%"/>');
                     var aInput = $(this).find(":input");
                     aInput.focus().val(cellData);
+                    var text = $(this).val();
+                    $(cell).html(text);
+                    editTableObj.cell(cell).data(text);
                 });
                 $(cell).on("blur", ":input", function () {
                     var text = $(this).val();
                     $(cell).html(text);
-                    editTableObj.cell(cell).data(text)
+                    editTableObj.cell(cell).data(text);
                 })
             }
         }, {
