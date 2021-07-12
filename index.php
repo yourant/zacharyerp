@@ -25,17 +25,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="https://markcell.github.io/jquery-tabledit/assets/js/tabledit.min.js"></script>
 
-    <style>
-        body,
-        html {
-            margin: 0;
-            padding: 0;
-        }
-
-        .gridArea {
-            padding: 10px;
-        }
-    </style>
 </head>
 
 <body>
