@@ -196,7 +196,6 @@ $(function () {
             "targets": [6],
             createdCell: function (cell, cellData, rowData, rowIndex, colIndex) {
                 $(cell).click(function () {
-                    $(this).inline( this );
                     $(this).html('<input type="text" size="16" style="width: 100%"/>');
                     var aInput = $(this).find(":input");
                     aInput.focus().val(cellData);
