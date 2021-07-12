@@ -10,7 +10,7 @@ class MySqli_DB {
 
 	public function db_connect()
 	{
-		$this->con = mysqli_connect("127.0.0.1","test","nr4oAX_F5e4jpif5d");
+		$this->con = mysqli_connect("127.0.0.1","erp","wdufdix39cks_od83kld");
 		if(!$this->con)
 		{
 			die(" Database connection failed:". mysqli_connect_error());
