@@ -85,7 +85,6 @@ class MySqli_DB {
         }
     }
 }
-print_r("0");
 
 $db = new MySqli_DB();
 $db->db_connect();
@@ -105,7 +104,6 @@ foreach ($tables as $table) {
     $tableName = $table["table_name"];
     //$query_arribute = "SELECT created_at, title, variant, sku, quantity FROM " . $tableName;
     $result = $db->query("SELECT created_at, title, variant, sku, quantity, note FROM " . $tableName);
-    //print_r($orderNumber);
     foreach($result as $row)
     {
      /*$sub_array = array();
@@ -120,7 +118,6 @@ foreach ($tables as $table) {
     //array_push($tabledata,array($tableName, $row["created_at"], $row["title"], $row["variant"], $row["sku"]));
     }
     /*while($row = $result->fetch_assoc()) {
-        print_r("3");
         echo "<tr>
         <td>". $orderNumber . "</td>
         <td>". $row["created_at"] . "</td>
@@ -130,7 +127,6 @@ foreach ($tables as $table) {
         <td>". $row["quantity"] . "</td>
         </tr>";
     }*/
-print_r("index.php");
 //--------------------------------------------------------------------------------
 
 
