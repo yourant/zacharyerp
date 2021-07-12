@@ -197,7 +197,7 @@ $(function () {
             createdCell: function (cell, cellData, rowData, rowIndex, colIndex) {
                 $(cell).click(function () {
                     $(this).html('<input type="text" size="16" style="width: 100%"/>');
-                    var aInput = $(this).find("input");
+                    var aInput = $(this).find(":input");
                     aInput.focus().val(cellData);
                 });
                 $(cell).on("blur", ":input", function () {
