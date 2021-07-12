@@ -185,10 +185,9 @@ var data1 = <?php echo $tabledata; ?>;
  var dataTable = $('#myGrid').DataTable({
   "processing" : true,
   "serverSide" : true,
-   scrollY: "200px",
-   scrollCollapse: true,
-   paging: false,
-  "order": []
+   "scrollY": "200px",
+   "scrollCollapse": true,
+   "paging": false
  });
   
 }); 
