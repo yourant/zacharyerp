@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -230,7 +231,7 @@ $(function () {
         "ajax" : {
             url:"TableData.php",
             type:"POST"
-        }
+        },
         ordering: false,
         paging: false,
         info: false,
