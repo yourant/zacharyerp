@@ -34,10 +34,10 @@
 
 $(document).ready(function(){
 
-//var data1 = <?php echo $tabledata; ?>;
+
  var dataTable = $('#myGrid').DataTable({
-  "processing" : true,
-  "serverSide" : true,
+  processing : true,
+  serverSide : true,
    scrollY: "200px",
    scrollCollapse: true,
    paging: false
