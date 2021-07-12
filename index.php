@@ -247,7 +247,7 @@ $(function () {
         processing: true,
         serverSide: true,
         data: <?php echo $tabledata; ?>
-        /*ajax : {
+        ajax : {
             url:"TableData.php",
             type:"POST",
             async: true,
@@ -270,7 +270,7 @@ $(function () {
                     }
                 }
             }
-        }*/
+        }
     };
     editTableObj = $("#myGrid").DataTable(setting);
     console.log("12345");
