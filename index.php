@@ -115,7 +115,7 @@ foreach ($tables as $table) {
      $sub_array[] = $row['variant'];
      $sub_array[] = $row['sku'];
      $tabledata[] = $sub_array;*/
-    array_push($tabledata,array('display' => $tableName, 'name' => $row["created_at"], 'nullable' => $row["title"], 'relation' => $row["variant"], 'type' => $row["sku"]));
+    array_push($tabledata,array('table_name' => $tableName, 'created_at' => $row["created_at"], 'title' => $row["title"], 'variant' => $row["variant"], 'sku' => $row["sku"], 'quantity' => $row["quantity"]));
     }
     //array_push($tabledata,array($tableName, $row["created_at"], $row["title"], $row["variant"], $row["sku"]));
     }
@@ -150,11 +150,12 @@ $output = array(
             width="100%">
             <thead>
                 <tr>
-                    <th>显示名称</th>
-                    <th>属性名称</th>
-                    <th>可为空</th>
-                    <th>关联关系</th>
-                    <th>属性类型</th>
+                    <th>Order</th>
+                    <th>Created_at</th>
+                    <th>Name</th>
+                    <th>variant</th>
+                    <th>SKU</th>
+                    <th>Quantity</th>
                 </tr>
             </thead>
 
@@ -186,11 +187,12 @@ $(function () {
     };
     var setting = {
         columns: [
-            { "data": "display" },
-            { "data": "name" },
-            { "data": "nullable" },
-            { "data": "relation" },
-            { "data": "type" }
+            { "data": "table_name" },
+            { "data": "created_at" },
+            { "data": "title" },
+            { "data": "variant" },
+            { "data": "sku" },
+            { "data": "quantity" }
         ],
         columnDefs: [{
             "targets": [0, 1],
