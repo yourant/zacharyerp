@@ -1,75 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
-    <!--<link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
-    <link href="datatables/css/dataTables.bootstrap.min.css" rel="stylesheet" />-->
-      <!--<script src="jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>  
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="https://markcell.github.io/jquery-tabledit/assets/js/tabledit.min.js"></script>-->
-
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>  
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="https://markcell.github.io/jquery-tabledit/assets/js/tabledit.min.js"></script>
+  <title>List Products</title>
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/css/uikit.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit-icons.min.js"></script>
 
 </head>
 
+
+
 <body>
 
-<script type="text/javascript" language="javascript" >
+  <div class="uk-alert-success uk-margin-medium-left uk-margin-medium-right" uk-alert>
+  <a class="uk-alert-close" uk-close></a>
 
-$(document).ready(function(){
+  <p>Unfulfilled Items - Last Sync: July6 1:58PM Chinese time</p>
+  <table class="uk-table uk-table-small uk-table-striped uk-table-divider uk-margin-small uk-margin-small-left uk-text-small" uk-grid="">
 
-
- var dataTable = $('#myGrid').DataTable({
-  processing : true,
-  serverSide : true,
-   scrollY: "200px",
-   scrollCollapse: true,
-   paging: false
- });
-  
-}); 
-console.log("ready function");
-</script>
-
-    <div class="gridArea">
-        <table id="myGrid" class="nowrap table table-striped table-bordered table-hover table-condensed" cellspacing="0"
-            width="100%">
-            <thead>
-                <tr>
-                    <th>显示名称</th>
-                    <th>属性名称</th>
-                    <th>可为空</th>
-                    <th>关联关系</th>
-                    <th>属性类型</th>
-                </tr>
-            </thead>
-
-        </table>
-    </div>
-
-
-    <!--<script src="jquery/jquery-1.12.3.min.js"></script>
-    <script src="datatables/js/jquery.dataTables.min.js"></script>
-    <script src="datatables/js/dataTables.bootstrap.min.js"></script>
-    <script src="index.js"></script>-->
-</body>
-
-</html>
+<tr>
+    <td>Order</td>
+    <td>Created_at</td>
+    <td>Product Name</td>
+    <td>Variant</td>
+    <td>SKU</td>
+    <td>Quantity</td>
+    <td>Note</td>
+</tr>
 
 <?php
 
@@ -80,7 +38,7 @@ class MySqli_DB {
 
 	public function db_connect()
 	{
-		$this->con = mysqli_connect("127.0.0.1","erp","wdufdix39cks_od83kld");
+		$this->con = mysqli_connect("127.0.0.1","test","nr4oAX_F5e4jpif5d");
 		if(!$this->con)
 		{
 			die(" Database connection failed:". mysqli_connect_error());
@@ -136,8 +94,11 @@ class MySqli_DB {
 		}
 	}
 }
-print_r("0");
 
+
+//https://delladirect.myshopify.com/admin/orders.json?limit=250&selectedView=savedSearch&status=open&fulfillment_status=unfulfilled&order=processed_at%20asc&processed_at_min=2021-01-01&processed_at_max=2021-06-24
+
+//$url = "https://2690fb974069f84abb68de4c26972018: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@she-sho-wholesale.myshopify.com/admin/orders.json";
 $db = new MySqli_DB();
 $db->db_connect();
 
@@ -148,7 +109,6 @@ $variant = "";
 $sku = "";
 $quantity = 0;
 $skuArray=[];
-$tabledata = array();
 
 $query_orders = "SELECT table_name FROM information_schema.tables WHERE table_schema = 'unfulfilled'";
 $tables = $db->query($query_orders);
@@ -157,18 +117,15 @@ foreach ($tables as $table) {
 	//$query_arribute = "SELECT created_at, title, variant, sku, quantity FROM " . $tableName;
 	$result = $db->query("SELECT created_at, title, variant, sku, quantity FROM " . $tableName);
 	//print_r($orderNumber);
-	foreach($result as $row)
-	{
-	 /*$sub_array = array();
-	 $sub_array[] = $tableName;
-	 $sub_array[] = $row['created_at'];
-	 $sub_array[] = $row['title'];
-	 $sub_array[] = $row['variant'];
-	 $sub_array[] = $row['sku'];
-	 $tabledata[] = $sub_array;*/
-	//array_push($tabledata,array('display' => $tableName, 'name' => $row["created_at"], 'nullable' => $row["title"], 'relation' => $row["variant"], 'type' => $row["sku"]));
-	}
-	array_push($tabledata,array($tableName, $row["created_at"], $row["title"], $row["variant"], $row["sku"]));
+	foreach ($result as $row) {
+		echo "<tr>
+		<td>". $tableName . "</td>
+		<td>". $row["created_at"] . "</td>
+		<td>". $row["title"] . "</td>
+		<td>". $row["variant"] . "</td>
+		<td>". $row["sku"] . "</td>
+		<td>". $row["quantity"] . "</td>
+		</tr>";
 	}
 	/*while($row = $result->fetch_assoc()) {
 		print_r("3");
@@ -181,113 +138,16 @@ foreach ($tables as $table) {
 		<td>". $row["quantity"] . "</td>
 		</tr>";
 	}*/
-print_r("index.php");
-//--------------------------------------------------------------------------------
+}
 
-
-$output = array(
-	'data' => $tabledata
-);
-
-//echo json_encode($output);
+$db->db_disconnect();
 
 ?>
 
-
-<!--function createCombox(data) {
-    var _html = '<select style="width:100%;">';
-    data.forEach(function (ele, index) {
-        _html += '<option>' + ele + '</option>';
-    });
-    _html += '</select>';
-    return _html;
-}
+</table>
 
 
 
-$(function () {
-    var editTableObj;
-    var comboData = {
-        "2": ["是", "否"],
-        "3": ["ManyToOne", "OneToMany", "无"],
-        "4": ["String", "Long", "Integer", "Boolean", "Date", "当前实体"]
-    };
-    var setting = {
-        columns: [
-            { "data": "display" },
-            { "data": "name" },
-            { "data": "nullable" },
-            { "data": "relation" },
-            { "data": "type" }
-        ],
-        columnDefs: [{
-            "targets": [0, 1],
-            createdCell: function (cell, cellData, rowData, rowIndex, colIndex) {
-                $(cell).click(function () {
-                    $(this).html('<input type="text" size="16" style="width: 100%"/>');
-                    var aInput = $(this).find(":input");
-                    aInput.focus().val(cellData);
-                });
-                $(cell).on("blur", ":input", function () {
-                    var text = $(this).val();
-                    $(cell).html(text);
-                    editTableObj.cell(cell).data(text)
-                })
-            }
-        }, {
-            "targets": [2, 3, 4],
-            createdCell: function (cell, cellData, rowData, rowIndex, colIndex) {
-                var aInput;
-                $(cell).click(function () {
-                    $(this).html(createCombox(comboData[colIndex]));
-                    var aInput = $(this).find(":input");
-                    aInput.focus().val("");
-                });
-                $(cell).on("click", ":input", function (e) {
-                    e.stopPropagation();
-                });
-                $(cell).on("change", ":input", function () {
-                    $(this).blur();
-                });
-                $(cell).on("blur", ":input", function () {
-                    var text = $(this).find("option:selected").text();
-                    editTableObj.cell(cell).data(text)
-                });
-            }
-        }],
-        ordering: false,
-        paging: false,
-        info: false,
-        searching: false,
-        processing: true,
-        serverSide: true,
-        data: tabledata
-        "ajax" : {
-            url:"TableData.php",
-            type:"POST",
-            async: true,
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("Error，Try again！");
-                console.log(errorThrown);
-            },
-            success: function (data) {
-                var jsonRete = eval(data);
-                for (var i in jsonRete) {
-                    if (jsonRete[i].ExchangeRate == 100)
-                    {
-                        //表格4显示
-                        refresh_exchangeRate.html("Done!");
-                        //表格5为操作删除，完成时变成灰色，不可点击
-                        refresh_delete.html("<a><i class='fa fa-trash-o ' style='color:#888;' ></i></a>");
-                    }
-                    else {
-                        refresh_exchangeRate.html(jsonRete[i].ExchangeRate);
-                    }
-                }
-            }
-        }
-    };
-    editTableObj = $("#myGrid").DataTable(setting);
-    console.log("12345");
-});
-</script>-->
+
+</body>
+</html>
