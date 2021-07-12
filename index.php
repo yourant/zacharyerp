@@ -34,7 +34,7 @@
 
 $(document).ready(function(){
 
-var data1 = <?php echo $tabledata; ?>;
+//var data1 = <?php echo $tabledata; ?>;
  var dataTable = $('#myGrid').DataTable({
   "processing" : true,
   "serverSide" : true,
@@ -46,7 +46,7 @@ var data1 = <?php echo $tabledata; ?>;
 }); 
 console.log("ready function");
 </script>
-	
+
     <div class="gridArea">
         <table id="myGrid" class="nowrap table table-striped table-bordered table-hover table-condensed" cellspacing="0"
             width="100%">
