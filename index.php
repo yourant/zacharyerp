@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
     <!--<link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="datatables/css/dataTables.bootstrap.min.css" rel="stylesheet" />-->
-      <script src="jquery.min.js"></script>
+      <!--<script src="jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>  
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="https://markcell.github.io/jquery-tabledit/assets/js/tabledit.min.js"></script>
+  <script src="https://markcell.github.io/jquery-tabledit/assets/js/tabledit.min.js"></script>-->
+
     <style>
         body,
         html {
