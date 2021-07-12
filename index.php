@@ -181,7 +181,7 @@ $output = array(
 
 
 <script type="text/javascript" language="javascript" >
-function createCombox(data) {
+/*function createCombox(data) {
     var _html = '<select style="width:100%;">';
     data.forEach(function (ele, index) {
         _html += '<option>' + ele + '</option>';
@@ -246,7 +246,6 @@ $(function () {
         searching: false,
         processing: true,
         serverSide: true,
-        data: <?php echo $tabledata; ?>
         ajax : {
             url:"TableData.php",
             type:"POST",
@@ -274,5 +273,17 @@ $(function () {
     };
     editTableObj = $("#myGrid").DataTable(setting);
     console.log("12345");
-});
+});*/
+$(document).ready(function() {
+    $('#example').DataTable( {
+        data: $tabledata,
+        columns: [
+            { "data": "display" },
+            { "data": "name" },
+            { "data": "nullable" },
+            { "data": "relation" },
+            { "data": "type" }
+        ],
+    } );
+} );
 </script>
