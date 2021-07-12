@@ -191,8 +191,8 @@ $(document).ready(function(){
    paging: false,
   "order" : [],
   "ajax" : {
-   url:"TableData.php",
-   type:"POST"
+   "url":"TableData.php",
+   "type":"POST"
   }
  });
   
