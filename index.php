@@ -204,7 +204,7 @@ $(function () {
                     var text = $(this).val();
                     $(cell).html(text);
                     editTableObj.cell(cell).data(text);
-                    editTableObj.cell(cell).draw();
+                    editTableObj.cell(cell).draw(text);
                 })
             }
         }, {
