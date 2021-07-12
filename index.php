@@ -200,7 +200,7 @@ $(function () {
                     var aInput = $(this).find(":input");
                     aInput.focus().val(cellData);
                 });
-                $(cell).on("blur", ":input", function () {
+                $(cell).on("blur", "input", function () {
                     var text = $(this).val();
                     $(cell).html(text);
                     editTableObj.cell(cell).data(text);
