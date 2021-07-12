@@ -194,16 +194,16 @@ $(function () {
         ],
         columnDefs: [{
             "targets": [6],
+            render: function( data, type, row ) {
+            　　return data;
+            }
             createdCell: function (cell, cellData, rowData, rowIndex, colIndex) {
                 $(cell).click(function () {
-                    var text = $(this).val();
-                    $(cell).html(text);
-                    editTableObj.cell(cell).data(text)
                     $(this).html('<input type="text" size="16" style="width: 100%"/>');
                     var aInput = $(this).find(":input");
-                    aInput.focus().val(text);
+                    aInput.focus().val(cellData);
                 });
-                $(cell).on("blur", "input", function () {
+                $(cell).on("blur", ":input", function () {
                     var text = $(this).val();
                     $(cell).html(text);
                     editTableObj.cell(cell).data(text)
