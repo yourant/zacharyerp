@@ -189,6 +189,8 @@ function createCombox(data) {
     return _html;
 }
 
+var tabledata = <?php echo $tabledata; ?>;
+
 $(function () {
     var editTableObj;
     var comboData = {
@@ -245,7 +247,7 @@ $(function () {
         searching: false,
         processing: true,
         serverSide: true,
-        data: <?php echo $tabledata; ?>
+        data: tabledata
         ajax : {
             url:"TableData.php",
             type:"POST",
