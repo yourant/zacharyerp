@@ -189,10 +189,10 @@ $(document).ready(function(){
    scrollY: "200px",
    scrollCollapse: true,
    paging: false,
-  "order" : [],
-  "ajax" : {
-   "url":"TableData.php",
-   "type":"POST"
+  "order": [],
+  ajax: {
+   url:"TableData.php",
+   type:"POST"
   }
  });
   
