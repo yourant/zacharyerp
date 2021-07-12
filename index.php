@@ -150,9 +150,9 @@ foreach ($tables as $table) {
 	 $sub_array[] = $row['variant'];
 	 $sub_array[] = $row['sku'];
 	 $tabledata[] = $sub_array;*/
-	array_push($tabledata,array('display' => $tableName, 'name' => $row["created_at"], 'nullable' => $row["title"], 'relation' => $row["variant"], 'type' => $row["sku"]));
+	//array_push($tabledata,array('display' => $tableName, 'name' => $row["created_at"], 'nullable' => $row["title"], 'relation' => $row["variant"], 'type' => $row["sku"]));
 	}
-	//array_push($tabledata,array($tableName, $row["created_at"], $row["title"], $row["variant"], $row["sku"]));
+	array_push($tabledata,array($tableName, $row["created_at"], $row["title"], $row["variant"], $row["sku"]));
 	}
 	/*while($row = $result->fetch_assoc()) {
 		print_r("3");
