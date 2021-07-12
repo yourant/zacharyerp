@@ -88,16 +88,16 @@ foreach ($tables as $table) {
 	//print_r($orderNumber);
 	foreach($result as $row)
 	{
-	 $sub_array = array();
+	 /*$sub_array = array();
 	 $sub_array[] = $tableName;
 	 $sub_array[] = $row['created_at'];
 	 $sub_array[] = $row['title'];
 	 $sub_array[] = $row['variant'];
 	 $sub_array[] = $row['sku'];
-	 $tabledata[] = $sub_array;
+	 $tabledata[] = $sub_array;*/
 	//array_push($tabledata,array('display' => $tableName, 'name' => $row["created_at"], 'nullable' => $row["title"], 'relation' => $row["variant"], 'type' => $row["sku"]));
 	}
-	//array_push($tabledata,array($tableName, $row["created_at"], $row["title"], $row["variant"], $row["sku"]));
+	array_push($tabledata,array($tableName, $row["created_at"], $row["title"], $row["variant"], $row["sku"]));
 	}
 	/*while($row = $result->fetch_assoc()) {
 		print_r("3");
@@ -116,7 +116,7 @@ print_r("1");
 
 
 $output = array(
-	'data' => $sub_array
+	'data' => $tabledata
 );
 
 echo json_encode($output);
